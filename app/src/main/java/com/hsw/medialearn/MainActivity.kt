@@ -14,6 +14,7 @@ import com.hsw.medialearn.databinding.ActivityMainBinding
 import com.hsw.medialearn.modules.audio.AudioActivity
 import com.hsw.medialearn.modules.camera.CameraActivity
 import com.hsw.medialearn.modules.canvas.CanvasActivity
+import com.hsw.medialearn.modules.dealmp4.DealMp4Activity
 import kotlin.reflect.KClass
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         "Canvas" to CanvasActivity::class,
         "Audio" to AudioActivity::class,
         "CameraVideoPrv" to CameraActivity::class,
-        "Canvas" to CanvasActivity::class,
+        "DealMp4" to DealMp4Activity::class,
         "Canvas" to CanvasActivity::class,
         "Canvas" to CanvasActivity::class,
     )

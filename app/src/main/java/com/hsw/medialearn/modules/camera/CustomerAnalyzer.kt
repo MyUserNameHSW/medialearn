@@ -1,5 +1,7 @@
 package com.hsw.medialearn.modules.camera
 
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import java.nio.ByteBuffer
@@ -24,8 +26,13 @@ class CustomerAnalyzer(val callback: (Double) -> Unit): ImageAnalysis.Analyzer {
         val pixels = data.map { it.toInt() and 0xFF }
         val average = pixels.average()
         callback(average)
+        pushNV21Buffer(image)
         image.close()
     }
 
-
+    fun pushNV21Buffer(image: ImageProxy) {
+        val nv21Bytes = image.planes[0].buffer.toByteArray()
+        // TODO: 处理图像 RTMP PUSH
+        Log.d("pushNV21Buffer", "pushNV21Buffer: ${nv21Bytes.size}")
+    }
 }

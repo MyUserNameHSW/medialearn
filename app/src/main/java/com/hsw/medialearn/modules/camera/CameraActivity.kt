@@ -11,6 +11,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
+import androidx.camera.core.impl.Config
+import androidx.camera.core.impl.ImageAnalysisConfig
+import androidx.camera.core.impl.OptionsBundle
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.video.*
 import androidx.camera.video.VideoCapture
@@ -54,7 +57,7 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("LogConditional")
+    @SuppressLint("LogConditional", "RestrictedApi")
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener({
@@ -71,13 +74,13 @@ class CameraActivity : AppCompatActivity() {
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
             // 搭载 Android 10 或更低版本的设备无法同时实现预览、图片拍摄和图片分析
             imageCapture = ImageCapture.Builder().build()
-//            val imageAnalysis = ImageAnalysis.Builder()
-//                .build()
-//                .also {
-//                    it.setAnalyzer(ContextCompat.getMainExecutor(this), CustomerAnalyzer { average ->
-//                        Log.d("TAG", "Average luminosity: $average")
-//                    })
-//                }
+            val imageAnalysis = ImageAnalysis.Builder()
+                .build()
+                .also {
+                    it.setAnalyzer(ContextCompat.getMainExecutor(this), CustomerAnalyzer { average ->
+                        Log.d("TAG", "Average luminosity: $average")
+                    })
+                }
             val recorder = Recorder.Builder()
                 .setQualitySelector(QualitySelector.from(Quality.HIGHEST))
                 .build()

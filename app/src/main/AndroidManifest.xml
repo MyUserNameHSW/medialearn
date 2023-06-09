@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MediaLearn"
         tools:targetApi="31">
+        <activity
+            android:name=".modules.dealmp4.DealMp4Activity"
+            android:exported="false" />
         <activity
             android:name=".modules.camera.CameraActivity"
             android:exported="false" />

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".modules.dealmp4.DealMp4Activity">
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_extractor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="解封装MP4"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_muxer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="重新封装MP4"/>
+
+
+</LinearLayout>
