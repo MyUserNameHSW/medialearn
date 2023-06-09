@@ -68,16 +68,15 @@ class DealMp4Activity : AppCompatActivity() {
             }
             if (mime.startsWith("audio/", true) && audioTrackIndex == -1) {
                 audioTrackIndex = muxer!!.addTrack(mediaFormat)
-                extractor!!.selectTrack(i)
+                extractor!!.selectTrack(i) // 去掉这个就只剩下视频
             } else if (mime.startsWith("video/", true) && videoTrackIndex == -1) {
                 videoTrackIndex = muxer!!.addTrack(mediaFormat)
-                extractor!!.selectTrack(i)
+                extractor!!.selectTrack(i) // 去掉这个就只剩下音频
             }
         }
         showStatus("解封装完成，videoTraceIndex:${videoTrackIndex}, audioTrackIndex:${audioTrackIndex}")
         Log.d(javaClass.simpleName, "mediaExtractor: 解封装完成，videoTraceIndex:${videoTrackIndex}, audioTrackIndex:${audioTrackIndex}")
     }
-
     @SuppressLint("WrongConstant")
     private fun mediaMuxer() {
         if (extractor == null) {
